@@ -1,30 +1,70 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    public float speed = 5f;
+    public CharacterController characterController;
+    public float moveSpeed = 5f;
     public float gravity = -9.81f;
-
-    private Vector3 velocity;
 
     void Update()
     {
-        if (Input.GetJoystickNames().Length > 0)
-        {        
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+        Vector2 moveInput = ReadMovementInput();
 
-            Vector3 move = transform.right * horizontal + transform.forward * vertical;
-            controller.Move(move * speed * Time.deltaTime);
+        HandleAttack();
 
-            if (controller.isGrounded && velocity.y < 0)
-            {
-                velocity.y = -2f;
-            }
-            velocity.y += gravity * Time.deltaTime;
+        Move(moveInput);
+    }
 
-            controller.Move(velocity * Time.deltaTime);
+    private void Move(Vector2 moveInput)
+    {
+        // Laske pelaajan suunan
+        Vector3 direction = transform.right * moveInput.x + transform.forward * moveInput.y;
+
+        Vector3 velocity = direction * moveSpeed;
+
+
+
+        characterController.Move(velocity * Time.deltaTime);
+    }
+
+    Vector2 ReadMovementInput()
+    {
+        // Alusta liikesyöte nollaksi
+        Vector2 moveInput = Vector2.zero;
+
+        // GAMEPAD: Tarkista onko peliohjain kytkettynä
+        if (Gamepad.current != null)
+        {
+            moveInput = Gamepad.current.leftStick.ReadValue();
+        }
+
+        if (Keyboard.current != null)
+        {
+            float x = 0f;
+            float y = 0f;
+
+
+            if (Keyboard.current.aKey.isPressed) x -= 1f;
+            if (Keyboard.current.dKey.isPressed) x += 1f;
+            if (Keyboard.current.wKey.isPressed) y -= 1f;
+            if (Keyboard.current.sKey.isPressed) y += 1f;
+
+            moveInput = new Vector2(x, y).normalized;    
+        }
+
+        // Palauta liikesyöte kutsujalle
+        return moveInput;
+    }
+
+    void HandleAttack()
+    {
+        if (Gamepad.current == null)
+            return;
+
+        if (Gamepad.current.rightTrigger.wasPressedThisFrame)
+        {
+            Debug.Log("Hyökkäys aktivoitu");
         }
     }
 }

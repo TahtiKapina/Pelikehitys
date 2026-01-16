@@ -209,8 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5045ad04a2bb0a94ba8d3dff17a43157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  controller: {fileID: 0}
-  speed: 5
+  characterController: {fileID: 212942984}
+  moveSpeed: 5
   gravity: -9.81
 --- !u!143 &212942984
 CharacterController:
