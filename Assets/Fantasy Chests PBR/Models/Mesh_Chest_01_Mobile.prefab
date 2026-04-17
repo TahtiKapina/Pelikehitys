@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4155270788060638}
   - component: {fileID: 95551194968607690}
-  - component: {fileID: 1139912549981530276}
   m_Layer: 0
   m_Name: Mesh_Chest_01_Mobile
   m_TagString: Untagged
@@ -45,7 +44,7 @@ Animator:
   m_GameObject: {fileID: 1083397690263268}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 403213619793a6c409ddcd827f06776e, type: 3}
-  m_Controller: {fileID: 9100000, guid: c6524ae65d38fae47b0aafee446f815c, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -57,20 +56,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1139912549981530276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083397690263268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aba1a89275caf341ba720e95d5c64e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChestController
-  requiredKeyId: 1
-  chestAnimator: {fileID: 95551194968607690}
 --- !u!1 &1649250517087540
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +83,7 @@ Transform:
   m_GameObject: {fileID: 1649250517087540}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.58277327, y: 0.5548524, z: -0.0001392961}
+  m_LocalPosition: {x: 0.58277327, y: 0.5548524, z: -0.00013929605}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

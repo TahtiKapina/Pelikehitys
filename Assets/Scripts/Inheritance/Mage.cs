@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Mage : Character
 {
@@ -7,8 +8,6 @@ public class Mage : Character
         Damage = 15f;
 
         Debug.Log($"{Name} on valmis taisteluun! HP: {Health}");
-
-        Attack();
     }
     void Update()
     {
@@ -17,6 +16,6 @@ public class Mage : Character
 
     public override void Attack()
     {
-        Debug.Log($"{Name} heitt‰‰ tulipallon");
+        Debug.Log($"{Name} heiitt‰‰ loitsun!");
     }
 }

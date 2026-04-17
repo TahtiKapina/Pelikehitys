@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         TakeDamage(1);
+
+        Load();
     }
 
     private void Update()
@@ -62,6 +64,17 @@ public class Player : MonoBehaviour
 
         // Tallenetaan JSON playerData.json nimiseen tiedostoon
         File.WriteAllText($"{Application.dataPath}/playerData.json", json);
+    }
+
+    public void Load()
+    {
+        Debug.Log("Testi: JSON-lataus käynissä");
+
+        string json = File.ReadAllText($"{Application.dataPath}/playerData.json");
+
+        PlayerData playerData = JsonUtility.FromJson<PlayerData>(json);
+
+        health.CurrentHealth = playerData.health;
     }
 }
 

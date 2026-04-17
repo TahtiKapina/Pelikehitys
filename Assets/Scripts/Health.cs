@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     // tämänhetkinen elämä
     private int currentHealth;
 
-    public int CurrentHealth { get => currentHealth; }
+    public int CurrentHealth { get => currentHealth; set => currentHealth = value; }
 
     void Awake()
     {

@@ -18,6 +18,11 @@ public class Character : MonoBehaviour
         }
     }
 
+    public float GetHealth()
+    {
+        return Health;
+    }
+
     public virtual void Attack()
     {
         Debug.Log($"{Name} hyökkää!");
@@ -25,14 +30,7 @@ public class Character : MonoBehaviour
 
     public virtual void DealDamage(Character target)
     {
-        if (target == null)
-        {
-            Debug.LogWarning("Kohde puuttuu — ei voida tehdä vahinkoa.");
-            return;
-        }
-
-        int damageAmount = Mathf.RoundToInt(Damage);
-        Debug.Log($"{Name} tekee {damageAmount} vahinkoa kohteelle {target.Name}.");
-        target.takeDamage(damageAmount);
+        Debug.Log($"{Name} aiheuttaa {Damage} vahinkoa kohteelle {target.Name}!");
+        target.takeDamage((int)Damage);
     }
 }

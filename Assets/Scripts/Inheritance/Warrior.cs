@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Warrior : Character
 {
@@ -7,12 +8,10 @@ public class Warrior : Character
         Damage = 20f;
 
         Debug.Log($"{Name} on valmis taisteluun! HP: {Health}");
-
-        Attack();
     }
     void Update()
     {
-
+        
     }
     public override void Attack()
     {

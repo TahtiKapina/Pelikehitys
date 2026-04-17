@@ -21,11 +21,17 @@ public class ClickerManager : MonoBehaviour
         UpdateScoreText();
     }
 
-    #region Tähän tulee EndGame-metodi
+    public void EndGame()
+    {
+        int highscore = PlayerPrefs.GetInt("HighScore", 0);
 
-
-
-    #endregion
+        if (score > highscore)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            PlayerPrefs.Save();
+            highscoreText.text = "Highscore: " + score;
+        }
+    }
 
     void UpdateScoreText()
     {
